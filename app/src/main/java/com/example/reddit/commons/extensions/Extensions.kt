@@ -2,10 +2,7 @@
 
 package com.example.reddit.extensions
 
-import android.Manifest
-import android.app.Activity
 import android.content.Context
-import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import android.view.Gravity
@@ -14,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.example.reddit.R
 
@@ -48,24 +44,8 @@ fun isNullOrEmpty(str: String?): Boolean {
 
 fun showToast(context: Context?) {
     val toast = Toast.makeText(context, "File is saved", Toast.LENGTH_SHORT);
-
-    toast.setGravity(Gravity.CENTER, 0, 0)
-
+    toast.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL, 0, 0)
     toast.show()
-}
-
-
-fun checkPermission(context: Context?) {
-    if (Build.VERSION.SDK_INT >= 23) {
-        ActivityCompat.requestPermissions(
-            (context as Activity?)!!,
-            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-            1
-        )
-
-
-
-    }
 }
 
 

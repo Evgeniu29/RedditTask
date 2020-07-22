@@ -60,17 +60,26 @@ class NewsDelegateAdapter : ViewTypeDelegateAdapter {
             }
 
             save.setOnClickListener() {
-                checkPermission(it.context)
-                val savedImageURL = MediaStore.Images.Media.insertImage(
-                    it.context.getContentResolver(),
-                    imgThumbnail.getDrawable().toBitmap(),
-                    item.title,
-                    "Image from reddit"
-                )
+                if (Build.VERSION.SDK_INT >= 23) {
+                    ActivityCompat.requestPermissions(
+                        (it.context as Activity?)!!,
+                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        1
+                    )
 
-                Uri.parse(savedImageURL)
 
-                showToast(it.context)
+                    val savedImageURL = MediaStore.Images.Media.insertImage(
+                        it.context.getContentResolver(),
+                        imgThumbnail.getDrawable().toBitmap(),
+                        item.title,
+                        "Image from reddit"
+                    )
+
+                    Uri.parse(savedImageURL)
+
+                    showToast(it.context)
+
+                }
 
             }
         }
