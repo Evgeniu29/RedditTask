@@ -82,7 +82,7 @@
     <Button
         android:id="@+id/save"
         android:layout_width="75sp"
-        android:layout_height="12sp"
+        android:layout_height="20sp"
         android:layout_alignEnd="@+id/time"
         android:layout_alignRight="@+id/time"
         android:layout_below="@id/comments"
