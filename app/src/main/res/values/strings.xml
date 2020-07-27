@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Reddit</string>
     <string name="save">Save</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="warning">No internet. Please check  internet connection.</string>
 
 </resources>
